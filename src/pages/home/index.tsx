@@ -1,6 +1,11 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import { Locations, Records, RootInterface } from "./models/home-models";
+import {
+    Locations,
+    Records,
+    RootInterface,
+    WeatherElement,
+} from "./models/home-models";
 
 const Home = () => {
     const [data, setData] = useState<Locations>();
