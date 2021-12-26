@@ -1,3 +1,8 @@
+export interface ElementValue {
+    value: string;
+    measures: string;
+}
+
 export interface Fields {
     id: string;
     type: string;
@@ -5,17 +10,21 @@ export interface Fields {
 
 export interface Location {
     locationName: string;
+    geocode: string;
+    lat: string;
+    lon: string;
     weatherElement: WeatherElement[];
 }
 
-export interface Parameter {
-    parameterName: string;
-    parameterUnit: string;
+export interface Locations {
+    datasetDescription: string;
+    locationsName: string;
+    dataid: string;
+    location: Location[];
 }
 
 export interface Records {
-    datasetDescription: string;
-    location: Location[];
+    locations: Locations[];
 }
 
 export interface Result {
@@ -32,29 +41,11 @@ export interface RootInterface {
 export interface Time {
     startTime: string;
     endTime: string;
-    parameter: Parameter;
+    elementValue: ElementValue[];
 }
 
 export interface WeatherElement {
     elementName: string;
+    description: string;
     time: Time[];
-}
-
-export interface test {
-    records: Records;
-    result: Result;
-    success: string;
-}
-
-export class test {
-    constructor() {
-        return {
-            records: { datasetDescription: "", location: [] },
-            result: {
-                resource_id: "",
-                fields: [],
-            },
-            success: "",
-        };
-    }
 }
