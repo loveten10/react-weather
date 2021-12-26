@@ -1,10 +1,8 @@
 import { useState } from "react";
 import { useEffect } from "react";
+import Tomorrow from "./components/tomorrow";
 import {
     Locations,
-    Records,
-    RootInterface,
-    WeatherElement,
 } from "./models/home-models";
 import NextWeek from "../home/components/next-week"
 
@@ -25,6 +23,7 @@ const Home = () => {
     return (
         <div>
             <NextWeek></NextWeek>
+            <Tomorrow></Tomorrow>
         </div>
     );
 };
