@@ -39,3 +39,22 @@ export interface WeatherElement {
     elementName: string;
     time: Time[];
 }
+
+export interface test {
+    records: Records;
+    result: Result;
+    success: string;
+}
+
+export class test {
+    constructor() {
+        return {
+            records: { datasetDescription: "", location: [] },
+            result: {
+                resource_id: "",
+                fields: [],
+            },
+            success: "",
+        };
+    }
+}

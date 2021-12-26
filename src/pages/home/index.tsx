@@ -1,18 +1,26 @@
-import { useState } from "react"
-import { useEffect } from "react"
-
-
+import { useState } from "react";
+import { useEffect } from "react";
+import { test } from "./models/home-models";
 
 const Home = () => {
-    const [data, setData] = useState({})
-    useEffect(()=>{
-        fetch('https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-091?Authorization=CWB-2701D371-6038-458C-B1C4-60F3E729E587').then(res => setData(()=>{
-            return res
-        })
+    const test1 = new test();
+    const [data, setData] = useState(test1);
+
+    useEffect(() => {
+        fetch(
+            "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-091?Authorization=CWB-2701D371-6038-458C-B1C4-60F3E729E587"
         )
-    })
+            .then((res) => res.json())
+            .then((res) => {
+                setData(res);
+            });
+    }, []);
 
-    return <div>{data}</div>
-}
+    useEffect(() => {
+        console.log(data);
+    }, [data]);
 
-export default Home
+    return <div>{data.records.location}</div>;
+};
+
+export default Home;
