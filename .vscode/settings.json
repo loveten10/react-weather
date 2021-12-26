@@ -1,0 +1,11 @@
+{
+    "cSpell.words": [
+        "asoul",
+        "hookform",
+        "tailwindcss"
+    ],
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true,
+    },
+}
