@@ -6,6 +6,7 @@ import {
     RootInterface,
     WeatherElement,
 } from "./models/home-models";
+import NextWeek from "../home/components/next-week"
 
 const Home = () => {
     const [data, setData] = useState<Locations>();
@@ -23,9 +24,7 @@ const Home = () => {
 
     return (
         <div>
-            {data?.location.map((item) => {
-                return <div>{item.locationName}</div>;
-            })}
+            <NextWeek></NextWeek>
         </div>
     );
 };
