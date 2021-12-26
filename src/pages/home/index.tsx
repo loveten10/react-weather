@@ -1,10 +1,8 @@
 import { useState } from "react";
 import { useEffect } from "react";
+import Tomorrow from "./components/tomorrow";
 import {
     Locations,
-    Records,
-    RootInterface,
-    WeatherElement,
 } from "./models/home-models";
 
 const Home = () => {
@@ -23,9 +21,7 @@ const Home = () => {
 
     return (
         <div>
-            {data?.location.map((item) => {
-                return <div>{item.locationName}</div>;
-            })}
+            <Tomorrow></Tomorrow>
         </div>
     );
 };
