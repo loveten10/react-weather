@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { getTomorrowApi } from "../../../api/api";
+import { api } from "../../../api/api";
 import { Location, RootInterface, WeatherElement } from "../models/tomorrow";
 
 const Tomorrow = () => {
@@ -8,7 +8,7 @@ const Tomorrow = () => {
     const [inputValue, setInputValue] = useState<string>("");
     const search = async () => {
         try {
-            const res = await getTomorrowApi(inputValue);
+            const res = await api.getTomorrowApi(inputValue);
             setData(() => {
                 return res.data.records.location;
             });
