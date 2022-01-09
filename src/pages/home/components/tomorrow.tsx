@@ -1,19 +1,18 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { Location, WeatherElement } from "../models/tomorrow";
+import { api } from "../../../api/api";
+import { Location, RootInterface, WeatherElement } from "../models/tomorrow";
+
 const Tomorrow = () => {
     const [data, setData] = useState<Location[]>();
     const [inputValue, setInputValue] = useState<string>("");
-    const search = () => {
-        fetch(
-            `https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-2701D371-6038-458C-B1C4-60F3E729E587&locationName=${inputValue}`
-        )
-            .then((res) => res.json())
-            .then((res) => {
-                setData(() => {
-                    return res.records.location;
-                });
+    const search = async () => {
+        try {
+            const res = await api.getTomorrowApi(inputValue);
+            setData(() => {
+                return res.data.records.location;
             });
+        } catch {}
     };
     const weatherDetail = (data: WeatherElement[]) => {
         let arr: any = [];
