@@ -1,5 +1,7 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { Locations, WeatherElement } from "../models/home-models"
+import st from "../styles/next-week.module.scss"
+import { Divider } from '@mui/material'
 
 
 
@@ -38,12 +40,12 @@ const NextWeek = () => {
     }
     return (
         <div>
-            <input type="text" value={searchValue} onChange={(e) => {
-                return setSearchValue(e.target.value)
-            }}></input>
-            <button onClick={() => searchNextWeek()}>Search</button>
+            <div className={st.nextWeek}>
+                未來一週預報
+                <Divider component="div"></Divider>
 
-            {nextWeekData()}
+                <div></div>
+            </div>
         </div>
     )
 }
